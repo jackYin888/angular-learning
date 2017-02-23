@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='myApp' ng-controller="helloCtrl">
+        <input type="text" ng-model='hello'> {{hello}}
+        <span ng-bind='name'></span>
+        <p ng-repeat="person in people">
+            <span ng-bind='person'></span>
+        </p>
+    </div>
+    <script src='./angular.min.js'></script>
+    <script>
+        var app = angular.module('myApp', [])
+
+        app.controller('helloCtrl', function($scope) {
+            $scope.name = 'JackYin',
+                $scope.people = [
+                    'mike',
+                    'john',
+                    'jack',
+                    'marry'
+                ]
+        })
+    </script>
+</body>
+
+</html>
