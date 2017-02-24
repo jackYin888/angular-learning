@@ -1,6 +1,4 @@
-#### $scope 
-
-
+1. $scope 
 
  controller 存在独立作用域，子控制器可继承父控制器属性
 
@@ -14,4 +12,12 @@
     app.controller('controller_first', ['$scope', function($s) {
             $s.name = 'JackYin'
         }])
+        
+
+2. apply& watch
+
+ * apply 传播model变化
+ * $watch 监听model变化$watch('监听值'，function(newValue,oldValue){})
+ 
+
         

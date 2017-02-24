@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>apply</title>
+</head>
+
+<body>
+    <div ng-app='myApp' ng-controller="applyController">
+        {{name}}
+        <input type="text" ng-model='score'>
+        <span ng-bind='level'></span>
+    </div>
+    <script src='./angular.min.js'></script>
+
+    <script>
+        angular.module('myApp', []).controller('applyController', ['$scope', function($scope) {
+            $scope.name = 'JackYin'
+            $scope.score = 0;
+            $scope.$watch('score', function(newValue, oldValue) {
+                console.log(newValue)
+                console.log(oldValue)
+                $scope.level = $scope.score >= 60 ? '及格' : '不及格'
+            })
+            setTimeout(function() {
+                //把要更新视图的方法给apply执行
+                $scope.$apply(function() {
+                    $scope.name = 'HHHAAA'
+                })
+            })
+
+        }])
+    </script>
+
+</body>
+
+</html>
