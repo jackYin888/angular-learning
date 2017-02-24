@@ -13,6 +13,5 @@
    
     app.controller('controller_first', ['$scope', function($s) {
             $s.name = 'JackYin'
-
         }])
         
