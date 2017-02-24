@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-app='myApp'>
+        <div ng-controller="controller_first">
+            {{name}} {{age}}
+            <div ng-controller="controller_second">
+                {{name}}
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src='./angular.min.js'></script>
+    <script>
+        //
+        var app = angular.module('myApp', []);
+        //代码压缩混淆的时候回调跳过字符串，所以可以通过以下方式来替换$scope
+        //$rootscope 属于全局作用域
+        app.controller('controller_first', ['$scope', function($s) {
+            $s.name = 'JackYin'
+
+        }])
+        app.controller('controller_second', ['$scope', '$rootScope', function($scope, $rootScope) {
+            // $scope.name = 'haha'
+            $rootScope.age = '30'
+        }])
+    </script>
+</body>
+
+</html>
